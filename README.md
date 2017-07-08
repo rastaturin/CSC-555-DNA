@@ -16,7 +16,7 @@ c) all possible encoded proteins.
 
 bonus) 
 (+10pts) bonus points for implementations that allow the user to enter the web link to an amino acid sequence such as in http://www.ebi.ac.uk/ena/data/... and outputs the list of protein names and links to their info such as in http://www.uniprot.org/uniprot... (1st column in proteins.csv), in addition to the info in a), b) and c).
-*Tip: Protein names can be extracted from the text in 'class="page-title"' on the uniprot.org webpage source code. See picture below:
+
 
 ## Authors
 
