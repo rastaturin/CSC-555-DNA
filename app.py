@@ -1,11 +1,10 @@
 import re
 import logging
 import sqlite3
-import urllib.request
-from html.parser import HTMLParser
 
 from bs4 import BeautifulSoup
 from flask import Flask, request, jsonify
+from pip._vendor import requests
 
 app = Flask(__name__, static_url_path='')
 
@@ -49,9 +48,8 @@ def get_protein(url):
 
 
 def get_page(url):
-    response = urllib.request.urlopen(url)
-    data = response.read()  # a `bytes` object
-    return data.decode('utf-8')
+    response = requests.get(url)
+    return response.text
 
 
 def get_title(page):
@@ -137,21 +135,6 @@ class Dna:
         logging.warning('Unknown codon ' + triplet)
         return '?'
 
-
-class MyHTMLParser(HTMLParser):
-    h2 = False
-    name = ''
-
-    def handle_starttag(self, tag, attrs):
-        if tag == 'h2':
-            self.h2 = True
-
-    def handle_endtag(self, tag):
-        self.h2 = False
-
-    def handle_data(self, data):
-        if self.h2:
-            self.name = data
 
 
 def find_proteins(seq):
