@@ -46,6 +46,10 @@ To start the app run the following commands
 
 Then open `http://localhost:5000` in your browser.
 
+### Online app
+
+The application avaliable online on http://ec2-54-193-26-140.us-west-1.compute.amazonaws.com/
+
 ## Authors
 
 
