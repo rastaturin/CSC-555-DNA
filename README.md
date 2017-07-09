@@ -20,8 +20,25 @@ bonus)
 
 ## Installation
 
+### Framework and libs
+
 The application was made using Python(Flask framework)/SQLite for backend and jQuery lib for frontend.
 It requires `Flask` and `BeautifulSoup` packages to be installed.
+
+### Database prepare
+
+Convert the file proteins.csv into SQLite database file `proteins.sqlite` with the following structure
+
+```
+CREATE TABLE proteins
+(
+    protein TEXT,
+    sequence TEXT
+);
+CREATE INDEX proteins_sequence_index ON proteins (sequence)
+```
+
+### Running the app
 
 To start the app run the following commands
 `FLASK_APP=app.py`
