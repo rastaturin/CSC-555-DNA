@@ -1,6 +1,6 @@
 # CSC-555-DNA
 
-## 
+## Task
 
 Implement a program that accepts as input any DNA sequence and outputs:
 
@@ -18,7 +18,19 @@ bonus)
 (+10pts) bonus points for implementations that allow the user to enter the web link to an amino acid sequence such as in http://www.ebi.ac.uk/ena/data/... and outputs the list of protein names and links to their info such as in http://www.uniprot.org/uniprot... (1st column in proteins.csv), in addition to the info in a), b) and c).
 
 
+## Installation
+
+The application was made using Python(Flask framework)/SQLite for backend and jQuery lib for frontend.
+It requires `Flask` and `BeautifulSoup` packages to be installed.
+
+To start the app run the following commands
+`FLASK_APP=app.py`
+`flask run`
+
+Then open `http://localhost:5000` in your browser.
+
 ## Authors
+
 
 * **Alexey Rastaturin** - 90725
 
