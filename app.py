@@ -1,3 +1,4 @@
+import random
 import re
 import logging
 import sqlite3
@@ -104,10 +105,22 @@ class Dna:
 
     def download(self, url):
         page = get_page(url).splitlines()
-        return ''.join(page[1:])
+        return self.filter(''.join(page[1:]))
 
     def filter(self, dna):
-        return re.sub(r'[^ATCGN]', '', dna.upper())
+        dna = dna.upper()
+        dna = re.sub(r'W', random.choice(['A', 'T']), dna)
+        dna = re.sub(r'S', random.choice(['C', 'G']), dna)
+        dna = re.sub(r'M', random.choice(['A', 'C']), dna)
+        dna = re.sub(r'K', random.choice(['G', 'T']), dna)
+        dna = re.sub(r'R', random.choice(['A', 'G']), dna)
+        dna = re.sub(r'Y', random.choice(['C', 'T']), dna)
+        dna = re.sub(r'B', random.choice(['C', 'G', 'T']), dna)
+        dna = re.sub(r'D', random.choice(['A', 'G', 'T']), dna)
+        dna = re.sub(r'H', random.choice(['A', 'C', 'T']), dna)
+        dna = re.sub(r'V', random.choice(['A', 'C', 'G']), dna)
+        dna = re.sub(r'N', random.choice(['A', 'C', 'G', 'T']), dna)
+        return re.sub(r'[^ATCG]', '', dna)
 
     def get_mRNA(self):
         return re.sub(r'T', 'U', self.dna)
